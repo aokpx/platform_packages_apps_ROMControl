@@ -41,6 +41,7 @@
     <string name="title_weather">Weather Settings</string>
     <string name="title_performance">Performance Settings</string>
     <string name="title_clipboard_share">Share to Clipboard</string>
+    <string name="title_advanced">Advanced</string>
 
     <!-- Header Summaries -->
     <string name="header_summary_clock">@null</string>
@@ -56,6 +57,7 @@
     <string name="header_summary_lockscreens">@null</string>
     <string name="header_summary_weather">@null</string>
     <string name="header_summary_vibrations">@null</string>
+    <string name="header_summary_advanced">@null</string>
 
     <!-- Menu Strings -->
     <string name="menu_nav_bar_reset">Reset nav bar</string>
@@ -269,6 +271,11 @@
     <string name="title_clock_doubleclick">Clock double click actions</string>
     <string name="title_clock_longclick">Clock long click actions</string>
     <string name="title_clock_shortclick">Clock short click actions</string>
+
+    <!-- Advanced Settings | AOKPX -->
+    <string name="debugging_title">Debugging</string>
+    <string name="xlog_title">Disable logcat logging</string>
+    <string name="xlog_summary">Potential battery savings (User support will not be given if logging is disabled) </string>
 
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>

@@ -93,4 +93,11 @@
         android:summary="@string/header_summary_vibrations"
         android:icon="@drawable/ic_rom_control_vibrations"
         android:fragment="com.aokp.romcontrol.fragments.Vibrations" />
+
+    <header
+        android:id="@+id/advanced"
+        android:title="@string/title_advanced"
+        android:fragment="com.aokp.romcontrol.fragments.Advanced"
+        android:icon="@drawable/ic_rom_control_adv"
+        android:summary="@string/header_summary_advanced" />
 </preference-headers>
