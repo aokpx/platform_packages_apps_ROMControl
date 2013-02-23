@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="aokpx_category"
+        android:title="@string/debugging_title" >
+        <CheckBoxPreference
+            android:key="xlog"
+            android:title="@string/xlog_title"
+            android:summary="@string/xlog_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
