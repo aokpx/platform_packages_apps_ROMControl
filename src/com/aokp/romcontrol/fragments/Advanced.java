@@ -49,12 +49,13 @@ public class Advanced extends AOKPPreferenceFragment {
         // Only show the hardware keys config on a device that does not have a navbar
         IWindowManager windowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
-        try {
-            if (windowManager.hasNavigationBar()) {
-                mHardware.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            }
-        } catch (RemoteException e) {
-            // Do nothing
+
+        final boolean hasNavBarByDefault = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+
+        if (hasNavBarByDefault) {
+            // Let's assume they don't have hardware keys
+            mHardware.removePreference(findPreference(KEY_HARDWARE_KEYS));
         }
     }
 
