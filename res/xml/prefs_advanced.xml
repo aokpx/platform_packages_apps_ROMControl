@@ -2,8 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory
-        android:key="aokpx_category"
+        android:key="hardware_category"
+        android:title="@string/hardware_title"
+        android:dependency="hardware_keys"  >
+
+        <PreferenceScreen
+            android:key="hardware_keys"
+             android:fragment="com.aokp.romcontrol.fragments.HardwareKeys"
+            android:title="@string/hardware_keys_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="debug_category"
         android:title="@string/debugging_title" >
+
         <CheckBoxPreference
             android:key="xlog"
             android:title="@string/xlog_title"
