@@ -56,6 +56,7 @@ public class Advanced extends AOKPPreferenceFragment {
         if (hasNavBarByDefault) {
             // Let's assume they don't have hardware keys
             mHardware.removePreference(findPreference(KEY_HARDWARE_KEYS));
+            prefs.removePreference(mHardware);
         }
     }
 

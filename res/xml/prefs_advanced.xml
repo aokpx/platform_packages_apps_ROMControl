@@ -3,8 +3,7 @@
 
     <PreferenceCategory
         android:key="hardware_category"
-        android:title="@string/hardware_title"
-        android:dependency="hardware_keys"  >
+        android:title="@string/hardware_title"  >
 
         <PreferenceScreen
             android:key="hardware_keys"
