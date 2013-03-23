@@ -10,6 +10,15 @@
              android:fragment="com.aokp.romcontrol.fragments.HardwareKeys"
             android:title="@string/hardware_keys_title" />
 
+        <ListPreference
+            android:key="vibecontrol"
+            android:dialogTitle="@string/vibecontrol_dialog_title"
+            android:title="@string/vibecontrol_title"
+            android:summary="@string/vibecontrol_summary"
+            android:entries="@array/vibecontrol_entries"
+            android:entryValues="@array/vibecontrol_values"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -301,7 +301,15 @@
     <!-- Advanced Settings | AOKPX -->
     <string name="debugging_title">Debugging</string>
     <string name="xlog_title">Disable logcat logging</string>
-    <string name="xlog_summary">Potential battery savings (User support will not be given if logging is disabled) </string>
+    <string name="xlog_summary">Potential battery savings (User support will not be given if logging is disabled)</string>
+
+    <string name="vibecontrol_title">Vibration control</string>
+    <string name="vibecontrol_dialog_title">Vibe strength</string>
+    <string name="vibecontrol_summary">Adjust vibration strength through kernel (Kernel values reset upon reboot)</string>
+    <string name="vibecontrol_low">Low</string>
+    <string name="vibecontrol_med">Med</string>
+    <string name="vibecontrol_default">High(default)</string>
+    <string name="vibecontrol_full">Full</string>
 
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>
