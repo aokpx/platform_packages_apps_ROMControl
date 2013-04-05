@@ -90,7 +90,7 @@ public class Advanced extends AOKPPreferenceFragment implements
             int index = mVibeControl.findIndexOfValue((String) newValue);
             mVibeControl.setSummary(
                     mVibeControl.getEntries()[index]);
-                    new CMDProcessor().su.runWaitFor("busybox echo " + value + " > "
+                    CMDProcessor.runSuCommand("busybox echo " + value + " > "
                     + VIBECONTROL_PATH);
             return true;
         }
@@ -104,14 +104,12 @@ public class Advanced extends AOKPPreferenceFragment implements
             boolean checked = ((CheckBoxPreference) preference).isChecked();
             if (checked) {
                 Helpers.getMount("rw");
-                new CMDProcessor().su
-                        .runWaitFor("mv /system/bin/logcat /system/bin/logcat.bck");
+                CMDProcessor.runSuCommand("mv /system/bin/logcat /system/bin/logcat.bck");
                 Helpers.getMount("ro");
                 mXlog.setSummary("Logging disabled, please enable before requesting support via XDA");
             } else {
                 Helpers.getMount("rw");
-                new CMDProcessor().su
-                    .runWaitFor("mv /system/bin/logcat.bck /system/bin/logcat");
+                CMDProcessor.runSuCommand("mv /system/bin/logcat.bck /system/bin/logcat");
                 Helpers.getMount("ro");
                 mXlog.setSummary(R.string.xlog_summary);
             }
