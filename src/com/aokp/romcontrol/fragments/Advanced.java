@@ -23,16 +23,12 @@ import com.aokp.romcontrol.R;
 import com.aokp.romcontrol.util.CMDProcessor;
 import com.aokp.romcontrol.util.Helpers;
 
-public class Advanced extends AOKPPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class Advanced extends AOKPPreferenceFragment {
 
     private static final String TAG = "Advanced";
     private static final String HARDWARE_SETTINGS = "hardware_category";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_VIBECONTROL = "vibecontrol";
-    private static final String VIBECONTROL_PATH = "/sys/devices/virtual/timed_output/vibrator/vibe_strength";
 
-    ListPreference mVibeControl;
     CheckBoxPreference mXlog;
     private PreferenceCategory mHardware;
 
@@ -43,26 +39,8 @@ public class Advanced extends AOKPPreferenceFragment implements
         addPreferencesFromResource(R.xml.prefs_advanced);
         PreferenceScreen prefs = getPreferenceScreen();
         mHardware = (PreferenceCategory) prefs.findPreference(HARDWARE_SETTINGS);
-        mVibeControl = (ListPreference) prefs.findPreference(
-                KEY_VIBECONTROL);
+
         mXlog = (CheckBoxPreference)findPreference("xlog");
-
-        final boolean hasVibeControl = new File(VIBECONTROL_PATH).exists();
-
-        if (hasVibeControl) {
-            String vibeStrength;
-            int vibeNum;
-            vibeStrength = Helpers.readOneLine(VIBECONTROL_PATH);
-            vibeNum = Integer.valueOf(vibeStrength);
-            mVibeControl.setValue(Integer.toString(vibeNum));
-                if (vibeNum != 90) {
-                    mVibeControl.setSummary(mVibeControl.getEntry());
-                }
-            mVibeControl.setOnPreferenceChangeListener(this);
-        } else {
-            mHardware.removePreference(findPreference(KEY_VIBECONTROL));
-        }
-
         mXlog.setChecked(!new File("/system/bin/logcat").exists());
         if (mXlog.isChecked()) {
             mXlog.setSummary("Logging disabled, please enable before requesting support via XDA");
@@ -78,23 +56,8 @@ public class Advanced extends AOKPPreferenceFragment implements
         if (hasNavBarByDefault) {
             // Let's assume they don't have hardware keys
             mHardware.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            if (!hasVibeControl) {
-                prefs.removePreference(mHardware);
-            }
+            prefs.removePreference(mHardware);
         }
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mVibeControl) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mVibeControl.findIndexOfValue((String) newValue);
-            mVibeControl.setSummary(
-                    mVibeControl.getEntries()[index]);
-                    CMDProcessor.runSuCommand("busybox echo " + value + " > "
-                    + VIBECONTROL_PATH);
-            return true;
-        }
-        return false;
     }
 
     @Override
