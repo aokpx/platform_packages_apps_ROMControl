@@ -32,6 +32,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceScreen
+        android:key="lock_clock"
+        android:title="@string/lock_clock_title"
+        android:summary="@string/lock_clock_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.cyanogenmod.lockclock"
+                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="notification_shade_clock"
         android:title="@string/notification_shade_clock">

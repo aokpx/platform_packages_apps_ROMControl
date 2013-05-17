@@ -385,6 +385,10 @@
     <string name="xlog_title">Disable logcat logging</string>
     <string name="xlog_summary">Potential battery savings (User support will not be given if logging is disabled) </string>
 
+    <!--- Lock clock -->
+    <string name="lock_clock_title">Clock widget</string>
+    <string name="lock_clock_summary">View or change how the \'cLock\' Home and Lock screen widgets will display</string>
+
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>
     <string name="toggle_auto_rotate">Auto Rotate</string>

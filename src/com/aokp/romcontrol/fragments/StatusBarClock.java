@@ -27,6 +27,7 @@ public class StatusBarClock extends AOKPPreferenceFragment implements
     private static final String PREF_CLOCK_SHORTCLICK = "clock_shortclick";
     private static final String PREF_CLOCK_LONGCLICK = "clock_longclick";
     private static final String PREF_CLOCK_DOUBLECLICK = "clock_doubleclick";
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
 
     private int shortClick = 0;
     private int longClick = 1;
@@ -72,6 +73,9 @@ public class StatusBarClock extends AOKPPreferenceFragment implements
         mClockWeekday.setOnPreferenceChangeListener(this);
         mClockWeekday.setValue(Integer.toString(Settings.System.getInt(mContentRes,
                 Settings.System.STATUSBAR_CLOCK_WEEKDAY, 0)));
+
+        // Don't display the lock clock preference if its not installed
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
         mClockShortClick = (ListPreference) findPreference(PREF_CLOCK_SHORTCLICK);
         mClockShortClick.setOnPreferenceChangeListener(this);
